@@ -1,77 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>A-Frame Snowman</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.4.2/dist/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@4.0.6/dist/aframe-particle-system-component.min.js"></script>
-    <style>
-      body { margin: 0; font-family: sans-serif; }
-      .info { position: absolute; left: 12px; top: 12px; color: #222; background: rgba(255,255,255,0.8); padding: 6px 10px; border-radius: 4px; }
-    </style>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
+     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
   </head>
-
   <body>
-    <div class="info">Use mouse / touch to look around. Move with WASD or joystick.</div>
-
-    <a-scene background="color: #87ceeb">
-      <!-- Lights -->
-      <a-entity light="type: ambient; color: #888"></a-entity>
-      <a-entity light="type: directional; color: #fff; intensity: 0.9" position="1 2 1"></a-entity>
-
-      <!-- Camera -->
-      <a-entity id="cameraRig">
-        <a-entity camera look-controls position="0 1.6 6"></a-entity>
-      </a-entity>
-
-      <!-- Ground -->
-      <a-plane rotation="-90 0 0" width="40" height="40" color="#eef6ff" position="0 0 0"></a-plane>
-
-      <!-- Snow particle system -->
-      <a-entity particle-system="particleCount: 9000; color: #FFF; size: 0.04; maxAge: 6; positionSpread: 20 10 20; velocityValue: 0 -0.6 0;"></a-entity>
-
-      <!-- Snowman group -->
-      <a-entity id="snowman" position="0 0 0">
-        <!-- Bottom sphere -->
-        <a-sphere radius="1" color="#fff" position="0 1 0" segments-width="32" segments-height="16"></a-sphere>
-
-        <!-- Middle sphere -->
-        <a-sphere radius="0.7" color="#fff" position="0 2.3 0" segments-width="32" segments-height="16"></a-sphere>
-
-        <!-- Head -->
-        <a-sphere radius="0.45" color="#fff" position="0 3.05 0" segments-width="32" segments-height="16"></a-sphere>
-
-        <!-- Eyes -->
-        <a-sphere radius="0.05" color="#000" position="-0.12 3.15 0.41"></a-sphere>
-        <a-sphere radius="0.05" color="#000" position="0.12 3.15 0.41"></a-sphere>
-
-        <!-- Nose (carrot) -->
-        <a-cone radius-bottom="0.06" radius-top="0" height="0.45" color="#ff8c00" position="0 3.05 0.52" rotation="90 0 0"></a-cone>
-
-        <!-- Mouth (small coal pieces) -->
-        <a-sphere radius="0.04" color="#000" position="-0.18 2.95 0.38"></a-sphere>
-        <a-sphere radius="0.04" color="#000" position="-0.06 2.92 0.4"></a-sphere>
-        <a-sphere radius="0.04" color="#000" position="0.06 2.92 0.4"></a-sphere>
-        <a-sphere radius="0.04" color="#000" position="0.18 2.95 0.38"></a-sphere>
-
-        <!-- Buttons on chest -->
-        <a-sphere radius="0.06" color="#000" position="0 2.3 0.7"></a-sphere>
-        <a-sphere radius="0.06" color="#000" position="0 1.9 0.78"></a-sphere>
-        <a-sphere radius="0.06" color="#000" position="0 1.5 0.7"></a-sphere>
-
-        <!-- Arms (twigs) -->
-        <a-cylinder radius="0.03" height="1.2" color="#5b3a29" position="-0.95 2.3 0" rotation="0 0 45"></a-cylinder>
-        <a-cylinder radius="0.03" height="1.2" color="#5b3a29" position="0.95 2.3 0" rotation="0 0 -45"></a-cylinder>
-
-        <!-- Hat -->
-        <a-cylinder radius="0.28" height="0.08" color="#111" position="0 3.5 0"></a-cylinder>
-        <a-cylinder radius="0.18" height="0.5" color="#111" position="0 3.78 0"></a-cylinder>
-      </a-entity>
-
-      <!-- Small ambient objects for scale -->
-      <a-box position="-3 0.5 -2" depth="0.5" height="1" width="0.5" color="#cce6ff"></a-box>
-      <a-box position="3 0.5 -2" depth="0.5" height="1" width="0.5" color="#cce6ff"></a-box>
+    <a-scene>
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0.1 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <!-- <a-sky color="#ECECEC"></a-sky> -->
+      <!-- the enviroment entity includes a sky. Choose from the presets"none, default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris, moon" -->
+      <a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
     </a-scene>
   </body>
 </html>
